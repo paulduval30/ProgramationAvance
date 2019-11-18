@@ -2,7 +2,7 @@ package miniprojet;
 
 import java.util.ArrayList;
 
-public class Adherent
+public abstract class Adherent
 {
     private String nom;
     private String prenom;

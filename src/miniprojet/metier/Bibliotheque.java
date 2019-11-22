@@ -1,4 +1,4 @@
-package miniprojet;
+package miniprojet.metier;
 
 import java.util.ArrayList;
 
@@ -6,6 +6,7 @@ public class Bibliotheque
 {
     private ArrayList<Livre> livres;
     private ArrayList<Adherent> adherents;
+    private ArrayList<Personnel> personnels;
 
     public Bibliotheque()
     {

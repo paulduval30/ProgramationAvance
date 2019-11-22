@@ -1,4 +1,4 @@
-package miniprojet;
+package miniprojet.metier;
 
 import java.util.ArrayList;
 

@@ -1,22 +1,25 @@
-package miniprojet;
+package miniprojet.metier;
 
 import java.util.ArrayList;
 
-public abstract class Adherent
+public abstract class Adherent implements Personne
 {
     private String nom;
     private String prenom;
     private String adresse;
     private String num;
     private ArrayList<Livre> livres;
+    private String metier;
 
-    public Adherent(String nom, String prenom, String adresse, String num)
+
+    public Adherent(String nom, String prenom, String adresse, String num, String metier)
     {
         this.nom = nom;
         this.prenom = prenom;
         this.adresse = adresse;
         this.num = num;
         this.livres = new ArrayList<>();
+        this.metier = metier;
     }
 
     public void inscrire(Bibliotheque b)
@@ -90,5 +93,15 @@ public abstract class Adherent
     public void setNum(String num)
     {
         this.num = num;
+    }
+
+    @Override
+    public double calculerCot() {
+        return 0;
+    }
+
+    @Override
+    public String toString() {
+        return this.nom + " " + this.prenom + " "+ this.metier;
     }
 }

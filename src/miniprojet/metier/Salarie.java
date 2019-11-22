@@ -1,13 +1,13 @@
-package miniprojet;
+package miniprojet.metier;
 
-public class Salarie extends Adherent
+public class Salarie extends Adherent implements Personne
 {
     private int salaireBrut;
     private String refSalarie;
 
     public Salarie(String nom, String prenom, String adresse, String num, int salaireBrut, String refSalarie)
     {
-        super(nom, prenom, adresse, num);
+        super(nom, prenom, adresse, num, "Salarié");
         this.salaireBrut = salaireBrut;
         this.refSalarie = refSalarie;
     }
@@ -17,5 +17,10 @@ public class Salarie extends Adherent
     {
         super.inscrire(b);
         System.out.println("Je suis salarié");
+    }
+
+    @Override
+    public double calculerCot() {
+        return 100;
     }
 }

@@ -1,10 +1,10 @@
-package miniprojet;
+package miniprojet.metier;
 
 public class SansEmploie extends Adherent
 {
     public SansEmploie(String nom, String prenom, String adresse, String num)
     {
-        super(nom, prenom, adresse, num);
+        super(nom, prenom, adresse, num, "Sans emploie");
     }
 
     @Override

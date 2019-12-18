@@ -1,5 +1,6 @@
 package miniprojet.IHM;
-import miniprojet.IHM.Panels.AddPanel;
+import miniprojet.IHM.Panels.AddLivre;
+import miniprojet.IHM.Panels.AddPersonne;
 import miniprojet.IHM.Panels.MenuPanel;
 import miniprojet.IHM.Panels.ViewPanel;
 import miniprojet.Main;
@@ -28,7 +29,8 @@ public class Window extends JFrame  {
         this.mainPanel = new JPanel();
         this.ecrans = new HashMap<>();
         this.ecrans.put("Menu", new MenuPanel(this));
-        this.ecrans.put("Ajout", new AddPanel(this));
+        this.ecrans.put("Ajout", new AddPersonne(this));
+        this.ecrans.put("AjoutLivre", new AddLivre(this));
         this.ecrans.put("Vue", new ViewPanel(this));
         mainPanel.add(ecrans.get("Menu"));
         this.getContentPane().add(mainPanel);

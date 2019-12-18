@@ -28,11 +28,10 @@ public abstract class Adherent implements Personne
         System.out.print("Je m'appel " + this.prenom + " " + this.nom + ". ");
     }
 
-    private boolean emprunter(Livre l)
-    {
+    public boolean emprunter(Livre l)
+        {
         if(l.isDisponible())
         {
-            l.setDisponible(false);
             this.livres.add(l);
         }
 
@@ -43,7 +42,7 @@ public abstract class Adherent implements Personne
     {
         if(this.livres.contains(l))
         {
-            l.setDisponible(true);
+            l.setAdherant(null);
             this.livres.remove(l);
         }
 

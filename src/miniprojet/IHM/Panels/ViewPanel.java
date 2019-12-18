@@ -5,6 +5,7 @@ import miniprojet.IHM.Component.ListView;
 import miniprojet.IHM.Window;
 import miniprojet.metier.Adherent;
 import miniprojet.metier.Bibliotheque;
+import miniprojet.metier.Livre;
 import miniprojet.metier.Personnel;
 
 import javax.swing.*;
@@ -19,6 +20,7 @@ public class ViewPanel extends JPanel implements ActionListener {
     private JTabbedPane tab;
     private ListView<Personnel> personnelListView;
     private JButton btnRetour;
+    private ListView<Livre> livreListView;
 
 
 
@@ -28,6 +30,7 @@ public class ViewPanel extends JPanel implements ActionListener {
         this.setVisible(true);
         this.adherentListView = new ListView<>();
         this.personnelListView = new ListView<>();
+        this.livreListView = new ListView<>();
         this.btnRetour = new JButton("Retour");
         for(Adherent a: bibliotheque.getAdherents())
         {
@@ -42,6 +45,7 @@ public class ViewPanel extends JPanel implements ActionListener {
         this.add(tab, BorderLayout.CENTER);
         tab.addTab("Adhérants",adherentListView);
         tab.addTab("Personnels",personnelListView);
+        tab.addTab("Livre", livreListView);
         JPanel p = new JPanel();
         p.add(btnRetour);
         btnRetour.addActionListener(this);

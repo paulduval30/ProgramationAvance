@@ -9,17 +9,21 @@ import java.awt.event.ActionListener;
 public class MenuPanel extends JPanel implements ActionListener {
     private JButton btnViewList;
     private JButton btnAdd;
+    private JButton btnAddLivre;
     private JTextArea listView;
     private  Window window;
 
 
     public MenuPanel(Window window){
-        this.btnViewList = new JButton("Voir la liste des personnes");
+        this.btnViewList = new JButton("Voir la liste des personnes et des livres");
         this.btnViewList.addActionListener(this);
-        this.btnAdd = new JButton("Ajouter");
+        this.btnAdd = new JButton("Ajouter une personne");
         this.btnAdd.addActionListener(this);
+        this.btnAddLivre = new JButton("Ajouter un livre");
+        this.btnAddLivre.addActionListener(this);
         this.add(btnViewList);
         this.add(btnAdd);
+        this.add(btnAddLivre);
         this.window = window;
         this.setVisible(true);
 
@@ -32,6 +36,9 @@ public class MenuPanel extends JPanel implements ActionListener {
         }
         if (e.getSource()==btnAdd){
             window.changerEcran("Ajout");
+        }
+        if (e.getSource()==btnAddLivre){
+            window.changerEcran("AjoutLivre");
         }
     }
 

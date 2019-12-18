@@ -9,7 +9,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class AddPanel extends JPanel implements ActionListener {
+public class AddPersonne extends JPanel implements ActionListener {
     private final String[] ROLE = new String[]{"Sans Emploi", "Salarie" , "Etudiant"};
     private  Window window;
     private JButton btnRetour;
@@ -25,7 +25,7 @@ public class AddPanel extends JPanel implements ActionListener {
     private JTextField txtBtxSalaireBrut;
     private JPanel mainPanel;
 
-    public AddPanel(Window window){
+    public AddPersonne(Window window){
         this.setLayout(new BorderLayout());
         this.window = window;
         createComponent();

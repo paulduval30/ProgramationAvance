@@ -40,6 +40,11 @@ public class Bibliotheque
 
     }
 
+    public void emprunter(Livre l, Adherent a){
+        l.setAdherant(a);
+        a.emprunter(l);
+    }
+
     public ArrayList<Personnel> getPersonnels(){
         return this.personnels;
     }

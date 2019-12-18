@@ -8,7 +8,7 @@ public class Livre
     private ArrayList<Auteur> auteur;
     private String editeur;
     private  int anneeEdition;
-    private boolean disponible;
+    private Adherent adherant;
 
     public Livre(String titre, String editeur, int anneeEdition, boolean disponible)
     {
@@ -16,7 +16,6 @@ public class Livre
         this.auteur = new ArrayList<>();
         this.editeur = editeur;
         this.anneeEdition = anneeEdition;
-        this.disponible = disponible;
     }
 
     public void addAuteur(Auteur a)
@@ -60,11 +59,14 @@ public class Livre
 
     public boolean isDisponible()
     {
-        return disponible;
+        return this.adherant == null;
     }
 
-    public void setDisponible(boolean disponible)
-    {
-        this.disponible = disponible;
+    public Adherent getAdherant() {
+        return adherant;
+    }
+
+    public void setAdherant(Adherent adherant) {
+        this.adherant = adherant;
     }
 }

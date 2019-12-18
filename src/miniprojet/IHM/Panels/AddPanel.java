@@ -97,7 +97,6 @@ public class AddPanel extends JPanel implements ActionListener {
                     SansEmploie chomeur = new SansEmploie(nom,prenom,adresse,num);
                     break;
                 case "Etudiant":
-                    Etudiant enfant = new Etudiant
             }
         }
 

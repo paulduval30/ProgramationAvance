@@ -18,14 +18,49 @@ public class AddPanel extends JPanel implements ActionListener {
     private JTextField txtBxAdr;
     private JTextField txtBxNum;
     private JComboBox cbxRole;
+    private JTextField txtBtxrefEtudiant;
+    private JTextField txtBtxnumEtudiant;
+    private JTextField txtBtxtRefSalarie;
+    private JTextField txtBtxSalaireBrut;
+    private JPanel mainPanel;
 
     public AddPanel(Window window){
         this.setLayout(new BorderLayout());
         this.window = window;
         createComponent();
-        placeComponent();
-        this.btnRetour.addActionListener(this);
-        this.btnSubmit.addActionListener(this);
+        placeComponent("Sans Emploi");
+        this.addListener();
+    }
+
+    private void addListener()
+    {
+        this.btnRetour.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                window.changerEcran("Menu");
+            }
+        });
+        this.btnSubmit.addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent e)
+            {
+                String nom = txtBxLastName.getText();
+                String prenom = txtBxLastName.getText();
+                String adresse = txtBxAdr.getText();
+                String num = txtBxNum.getText();
+                String statut = cbxRole.getSelectedItem().toString();
+                switch(statut){
+                    case "Sans Emploi":
+                        SansEmploie chomeur = new SansEmploie(nom,prenom,adresse,num);
+                        break;
+                    case "Etudiant":
+                }
+            }
+        });
+        this.cbxRole.addActionListener(this);
     }
     
     private void createComponent(){
@@ -33,15 +68,55 @@ public class AddPanel extends JPanel implements ActionListener {
         this.btnSubmit = new JButton("Submit");
         this.txtBxLastName = new JTextField(20);
         this.txtBxFirstName = new JTextField(20);
-        this.txtBxAdr = new JTextField();
-        this.txtBxNum = new JTextField();
+        this.txtBxAdr = new JTextField(50);
+        this.txtBxNum = new JTextField(10);
         this.cbxRole = new JComboBox();
+        this.txtBtxnumEtudiant = new JTextField(20);
+        this.txtBtxrefEtudiant = new JTextField(20);
+        this.txtBtxSalaireBrut = new JTextField(20);
+        this.txtBtxtRefSalarie = new JTextField(20);
         for(String s : ROLE)
             cbxRole.addItem(s);
+        this.mainPanel = new JPanel(new GridLayout(0,1));
 
     }
 
-    private void placeComponent(){
+    private JPanel createForm(String statut)
+    {
+        JPanel panel = new JPanel(new GridLayout(0,1));
+        JPanel tmp = new JPanel();
+        if(statut.equals("Etudiant"))
+        {
+            tmp.add(new JLabel("Ref Etudiant"));
+            tmp.add(txtBtxrefEtudiant);
+            panel.add(tmp);
+
+            tmp = new JPanel();
+            tmp.add(new JLabel("Num Etudiant"));
+            tmp.add(txtBtxnumEtudiant);
+            panel.add(tmp);
+
+            return panel;
+        }
+        else if(statut.equals("Salarie"))
+        {
+            tmp.add(new JLabel("Ref Salarie"));
+            tmp.add(txtBtxtRefSalarie);
+            panel.add(tmp);
+
+            tmp = new JPanel();
+            tmp.add(new JLabel("Salaire Brut"));
+            tmp.add(txtBtxSalaireBrut);
+            panel.add(tmp);
+
+            return panel;
+        }
+
+        return panel;
+    }
+
+    private void placeComponent(String statut){
+
         JPanel q = new JPanel(new GridLayout(0,1));
         JPanel tmp = new JPanel();
 
@@ -58,46 +133,30 @@ public class AddPanel extends JPanel implements ActionListener {
         tmp.add(new JLabel("Statut :"));
         tmp.add(this.cbxRole);
         q.add(tmp);
-        this.add(q, BorderLayout.CENTER);
 
-        tmp = new JPanel();
-        tmp.add(new JLabel("Adresse :"));
-        tmp.add(this.txtBxAdr);
-        q.add(tmp);
-        this.add(q, BorderLayout.CENTER);
+        this.mainPanel.add(q);
+        createForm("Sans Emploie");
+        this.mainPanel.add(createForm(statut));
 
-        tmp = new JPanel();
-        tmp.add(new JLabel("Numero :"));
-        tmp.add(this.txtBxNum);
-        q.add(tmp);
-        this.add(q, BorderLayout.CENTER);
-
-        tmp=  new JPanel();
+        tmp =  new JPanel();
         tmp.add(this.btnSubmit);
         tmp.add(this.btnRetour);
+        this.add(mainPanel, BorderLayout.CENTER);
         this.add(tmp, BorderLayout.SOUTH);
 
-        JPanel r = new JPanel();
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == btnRetour){
-            window.changerEcran("Menu");
-        }
-
-        if (e.getSource() == btnSubmit){
-            String nom = this.txtBxLastName.getText();
-            String prenom = this.txtBxLastName.getText();
-            String adresse = this.txtBxAdr.getText();
-            String num = this.txtBxNum.getText();
-            String statut = this.cbxRole.getSelectedItem().toString();
-            switch(statut){
-                case "Sans Emploi":
-                    SansEmploie chomeur = new SansEmploie(nom,prenom,adresse,num);
-                    break;
-                case "Etudiant":
-            }
+        if(e.getSource() == cbxRole)
+        {
+            String statut = (String)this.cbxRole.getSelectedItem();
+            int selected = this.cbxRole.getSelectedIndex();
+            this.remove(mainPanel);
+            this.mainPanel = new JPanel(new GridLayout(0,1));
+            this.placeComponent(statut);
+            this.revalidate();
+            this.addListener();
         }
 
     }

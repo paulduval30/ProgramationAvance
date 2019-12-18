@@ -7,7 +7,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class MainFrame extends JFrame implements Runnable,KeyListener, MouseListener, MouseMotionListener, MouseWheelListener
+public class MainFrame extends JFrame implements Runnable, KeyListener, MouseListener, MouseMotionListener, MouseWheelListener, ActionListener
 {
     private PanelAjoutSatelite ajoutSatelite;
     private Main main;
@@ -16,9 +16,16 @@ public class MainFrame extends JFrame implements Runnable,KeyListener, MouseList
     private PanelAjoutPlanet ajoutPlanet;
     private PanelAjoutEtoile ajoutEtoile;
     static Input input;
+    private JButton pause;
+    private boolean pauseState;
+
+
     public MainFrame(Main main)
     {
         MainFrame.input = new Input();
+        this.pause = new JButton("Pause");
+        this.pause.addActionListener(this);
+        this.add(pause, BorderLayout.SOUTH);
         this.onglets = new JTabbedPane();
         this.main = main;
         this.ajoutEtoile = new PanelAjoutEtoile(this.main, 800, 800);
@@ -57,11 +64,15 @@ public class MainFrame extends JFrame implements Runnable,KeyListener, MouseList
         {
 
             MainFrame.input.update();
-            for(Planet p : this.main.getSolarSystem().getPlanets())
+            if(!this.pauseState)
             {
-                p.translate((int)(this.getWidth() / 2 - main.getSolarSystem().getStar().getDiametre() / 2),
-                        (int)(this.getHeight() / 2 - main.getSolarSystem().getStar().getDiametre() / 2), (int)p.getDistanceFromSun());
+                for(Planet p : this.main.getSolarSystem().getPlanets())
+                {
+                    p.translate((int)(this.getWidth() / 2 - main.getSolarSystem().getStar().getDiametre() / 2),
+                            (int)(this.getHeight() / 2 - main.getSolarSystem().getStar().getDiametre() / 2), (int)p.getDistanceFromSun());
+                }
             }
+
             this.repaint();
             try
             {
@@ -139,5 +150,11 @@ public class MainFrame extends JFrame implements Runnable,KeyListener, MouseList
     public void mouseWheelMoved(MouseWheelEvent e)
     {
 
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent e)
+    {
+        this.pauseState = !this.pauseState;
     }
 }

@@ -12,6 +12,8 @@ public class Bibliotheque
     {
         this.livres = new ArrayList<>();
         this.adherents = new ArrayList<>();
+        this.personnels = new ArrayList<>();
+
     }
 
     public ArrayList<Adherent> getAdherents()
@@ -29,6 +31,17 @@ public class Bibliotheque
     {
         if(a != null)
             this.adherents.add(a);
+    }
+
+    public void embaucherPersonnel(Personnel p){
+        if (p != null){
+            personnels.add(p);
+        }
+
+    }
+
+    public ArrayList<Personnel> getPersonnels(){
+        return this.personnels;
     }
 
 }

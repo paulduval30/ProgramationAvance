@@ -102,6 +102,6 @@ public abstract class Adherent implements Personne
 
     @Override
     public String toString() {
-        return this.nom + " " + this.prenom + " "+ this.metier;
+        return this.prenom + " " + this.nom + " "+ this.metier;
     }
 }

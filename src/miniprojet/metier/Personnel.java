@@ -42,6 +42,10 @@ public abstract class Personnel implements Personne{
     public String getLibStatus() {
         return libStatus;
     }
+
+    public String toString(){
+        return this.prenom+" "+this.nom+ " "+this.getLibStatus();
+    }
 }
 
 

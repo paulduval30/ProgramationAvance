@@ -1,6 +1,7 @@
 package miniprojet.IHM.Panels;
 import miniprojet.IHM.Window;
 import miniprojet.metier.Etudiant;
+import miniprojet.metier.Salarie;
 import miniprojet.metier.SansEmploie;
 
 import javax.swing.*;
@@ -55,9 +56,21 @@ public class AddPanel extends JPanel implements ActionListener {
                 switch(statut){
                     case "Sans Emploi":
                         SansEmploie chomeur = new SansEmploie(nom,prenom,adresse,num);
+                        window.getMain().getBibliotheque().inscrireAdherent(chomeur);
                         break;
                     case "Etudiant":
+                        String refEtu = txtBtxrefEtudiant.getText();
+                        String numEtu = txtBtxnumEtudiant.getText();
+                        Etudiant etu = new Etudiant(nom,prenom,adresse,num,refEtu,numEtu);
+                        window.getMain().getBibliotheque().inscrireAdherent(etu);
+                        break;
+                    case "Salarie":
+                        String refSala = txtBtxtRefSalarie.getText();
+                        int salaire = new Integer(txtBtxSalaireBrut.getText());
+                        Salarie sala = new Salarie(nom,prenom,adresse,num,salaire,refSala);
+                        window.getMain().getBibliotheque().inscrireAdherent(sala);
                 }
+
             }
         });
         this.cbxRole.addActionListener(this);

@@ -1,7 +1,9 @@
 package miniprojet.metier;
 
 
-public abstract class Personnel implements Personne{
+import miniprojet.IHM.listview.Sortable;
+
+public abstract class Personnel implements Personne, Sortable{
 
     private String num;
     private String nom;
@@ -45,6 +47,24 @@ public abstract class Personnel implements Personne{
 
     public String toString(){
         return this.prenom+" "+this.nom+ " "+this.getLibStatus();
+    }
+
+    @Override
+    public String getId()
+    {
+        return this.prenom + " " + this.prenom;
+    }
+
+    @Override
+    public String getText()
+    {
+        return this.prenom + " " + this.nom + " "+ this.libStatus;
+    }
+
+    @Override
+    public String getDetail()
+    {
+        return null;
     }
 }
 

@@ -19,7 +19,7 @@ public class Auteur
 
     public void ecrire(String titre, String editeur, int annee)
     {
-        Livre l = new Livre(titre, editeur, annee, true);
+        Livre l = new Livre(titre, editeur, annee);
         l.addAuteur(this);
         this.livres.add(l);
     }

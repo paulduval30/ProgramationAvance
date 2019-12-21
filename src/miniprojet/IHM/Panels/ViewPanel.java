@@ -1,7 +1,6 @@
 package miniprojet.IHM.Panels;
 
-import javafx.scene.control.Tab;
-import miniprojet.IHM.Component.ListView;
+import miniprojet.IHM.listview.FilterListView;
 import miniprojet.IHM.Window;
 import miniprojet.metier.Adherent;
 import miniprojet.metier.Bibliotheque;
@@ -16,11 +15,11 @@ import java.awt.event.ActionListener;
 public class ViewPanel extends JPanel implements ActionListener {
     private Bibliotheque bibliotheque;
     private  Window window;
-    private ListView<Adherent> adherentListView;
+    private FilterListView<Adherent> adherentListView;
     private JTabbedPane tab;
-    private ListView<Personnel> personnelListView;
+    private FilterListView<Personnel> personnelListView;
     private JButton btnRetour;
-    private ListView<Livre> livreListView;
+    private FilterListView<Livre> livreListView;
 
 
 
@@ -28,9 +27,10 @@ public class ViewPanel extends JPanel implements ActionListener {
         this.bibliotheque = window.getMain().getBibliotheque();
         this.window = window;
         this.setVisible(true);
-        this.adherentListView = new ListView<>();
-        this.personnelListView = new ListView<>();
-        this.livreListView = new ListView<>();
+        this.adherentListView = new FilterListView<>(new Dimension(window.getWidth(), window.getHeight()));
+        this.personnelListView = new FilterListView<>(new Dimension(window.getWidth(), window.getHeight()));
+        this.livreListView = new FilterListView<>(new Dimension(window.getWidth(), window.getHeight()));
+
         this.btnRetour = new JButton("Retour");
         for(Adherent a: bibliotheque.getAdherents())
         {
@@ -40,12 +40,30 @@ public class ViewPanel extends JPanel implements ActionListener {
         {
             personnelListView.add(p);
         }
+
+        for(Livre l : bibliotheque.getLivres())
+        {
+            livreListView.add(l);
+        }
         this.tab = new JTabbedPane();
         this.setLayout(new BorderLayout());
         this.add(tab, BorderLayout.CENTER);
-        tab.addTab("Adhérants",adherentListView);
-        tab.addTab("Personnels",personnelListView);
-        tab.addTab("Livre", livreListView);
+
+        JScrollPane tmpScroll = new JScrollPane(adherentListView);
+        tmpScroll.setHorizontalScrollBar(null);
+        tmpScroll.setPreferredSize(new Dimension(window.getWidth(), window.getHeight()));
+        tab.addTab("Adhérants", tmpScroll);
+
+        tmpScroll = new JScrollPane(personnelListView);
+        tmpScroll.setHorizontalScrollBar(null);
+        tmpScroll.setPreferredSize(new Dimension(window.getWidth(), window.getHeight()));
+        tab.addTab("Personnels",tmpScroll);
+
+        tmpScroll = new JScrollPane(livreListView);
+        tmpScroll.setHorizontalScrollBar(null);
+        tmpScroll.setPreferredSize(new Dimension(window.getWidth(), window.getHeight()));
+        tab.addTab("Livre", tmpScroll);
+
         JPanel p = new JPanel();
         p.add(btnRetour);
         btnRetour.addActionListener(this);

@@ -1,8 +1,10 @@
 package miniprojet.metier;
 
+import miniprojet.IHM.listview.Sortable;
+
 import java.util.ArrayList;
 
-public abstract class Adherent implements Personne
+public abstract class Adherent implements Personne, Sortable
 {
     private String nom;
     private String prenom;
@@ -29,7 +31,7 @@ public abstract class Adherent implements Personne
     }
 
     public boolean emprunter(Livre l)
-        {
+    {
         if(l.isDisponible())
         {
             this.livres.add(l);
@@ -101,6 +103,35 @@ public abstract class Adherent implements Personne
 
     @Override
     public String toString() {
+        return this.prenom + " " + this.nom;
+    }
+
+    @Override
+    public String getId()
+    {
+        return this.prenom + " " + this.nom;
+    }
+
+    @Override
+    public String getText()
+    {
         return this.prenom + " " + this.nom + " "+ this.metier;
+    }
+
+    @Override
+    public String getDetail()
+    {
+        StringBuilder strRet = new StringBuilder();
+        strRet.append(this.nom).append(" ").append(this.prenom).append("\n");
+        strRet.append("Livre Emprunté : \n");
+        for (Livre l : livres)
+            strRet.append(l.getText()).append("\n");
+
+        return strRet.toString();
+    }
+
+    public void rendreLivre(Livre l)
+    {
+        this.livres.remove(l);
     }
 }

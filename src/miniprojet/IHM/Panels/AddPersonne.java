@@ -164,11 +164,10 @@ public class AddPersonne extends JPanel implements ActionListener {
         if(e.getSource() == cbxRole)
         {
             String statut = (String)this.cbxRole.getSelectedItem();
-            int selected = this.cbxRole.getSelectedIndex();
-            this.remove(mainPanel);
+            this.removeAll();
             this.mainPanel = new JPanel(new GridLayout(0,1));
             this.placeComponent(statut);
-            this.revalidate();
+            mainPanel.revalidate();
             this.addListener();
         }
 

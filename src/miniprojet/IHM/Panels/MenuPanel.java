@@ -19,7 +19,7 @@ public class MenuPanel extends JPanel implements ActionListener {
         this.btnViewList.addActionListener(this);
         this.btnAdd = new JButton("Ajouter une personne");
         this.btnAdd.addActionListener(this);
-        this.btnAddLivre = new JButton("Ajouter un livre");
+        this.btnAddLivre = new JButton("Emprunter / Rendre un livre");
         this.btnAddLivre.addActionListener(this);
         this.add(btnViewList);
         this.add(btnAdd);

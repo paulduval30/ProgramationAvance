@@ -1,5 +1,5 @@
 package miniprojet.IHM;
-import miniprojet.IHM.Panels.AddLivre;
+import miniprojet.IHM.Panels.PanelEmpruntRetour;
 import miniprojet.IHM.Panels.AddPersonne;
 import miniprojet.IHM.Panels.MenuPanel;
 import miniprojet.IHM.Panels.ViewPanel;
@@ -21,6 +21,15 @@ public class Window extends JFrame  {
 
     public Window(Main m)
     {
+        try
+        {
+            UIManager.setLookAndFeel("com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel");
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+
         this.m = m;
         this.setTitle("Gestion du personnel et des adhérants");
         this.setSize(1200,600);
@@ -30,7 +39,7 @@ public class Window extends JFrame  {
         this.ecrans = new HashMap<>();
         this.ecrans.put("Menu", new MenuPanel(this));
         this.ecrans.put("Ajout", new AddPersonne(this));
-        this.ecrans.put("AjoutLivre", new AddLivre(this));
+        this.ecrans.put("AjoutLivre", new PanelEmpruntRetour(this));
         this.ecrans.put("Vue", new ViewPanel(this));
         mainPanel.add(ecrans.get("Menu"));
         this.getContentPane().add(mainPanel);

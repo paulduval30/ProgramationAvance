@@ -1,8 +1,10 @@
 package miniprojet.metier;
 
+import miniprojet.IHM.listview.Sortable;
+
 import java.util.ArrayList;
 
-public class Livre
+public class Livre implements Sortable
 {
     private String titre;
     private ArrayList<Auteur> auteur;
@@ -10,7 +12,7 @@ public class Livre
     private  int anneeEdition;
     private Adherent adherant;
 
-    public Livre(String titre, String editeur, int anneeEdition, boolean disponible)
+    public Livre(String titre, String editeur, int anneeEdition)
     {
         this.titre = titre;
         this.auteur = new ArrayList<>();
@@ -68,5 +70,29 @@ public class Livre
 
     public void setAdherant(Adherent adherant) {
         this.adherant = adherant;
+    }
+
+    @Override
+    public String getId()
+    {
+        return this.titre;
+    }
+
+    @Override
+    public String getDetail()
+    {
+        return null;
+    }
+
+    @Override
+    public String getText()
+    {
+        return this.titre;
+    }
+
+    @Override
+    public String toString()
+    {
+        return this.titre;
     }
 }

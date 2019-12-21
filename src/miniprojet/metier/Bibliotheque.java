@@ -41,12 +41,22 @@ public class Bibliotheque
     }
 
     public void emprunter(Livre l, Adherent a){
-        l.setAdherant(a);
         a.emprunter(l);
+        l.setAdherant(a);
     }
 
     public ArrayList<Personnel> getPersonnels(){
         return this.personnels;
     }
 
+    public ArrayList<Livre> getLivres()
+    {
+        return livres;
+    }
+
+    public void rendreLivre(Livre l, Adherent a)
+    {
+        a.rendreLivre(l);
+        l.setAdherant(null);
+    }
 }

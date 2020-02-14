@@ -64,7 +64,7 @@ public abstract class Personnel implements Personne, Sortable{
     @Override
     public String getDetail()
     {
-        return null;
+        return this.toString();
     }
 }
 

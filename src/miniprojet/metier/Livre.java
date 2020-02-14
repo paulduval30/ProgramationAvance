@@ -81,7 +81,7 @@ public class Livre implements Sortable
     @Override
     public String getDetail()
     {
-        return null;
+        return this.titre + "\n" + (this.adherant != null ? "Emprunté par : " + adherant.getNom() + " " + adherant.getPrenom() : "Libre");
     }
 
     @Override

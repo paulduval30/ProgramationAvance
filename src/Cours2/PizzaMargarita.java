@@ -1,24 +1,24 @@
 package Cours2;
 
-public class LivreBroche implements Livre {
+public class PizzaMargarita implements Pizza {
 	public String titre;
 	private double prix;
 	
-	public LivreBroche(){
+	public PizzaMargarita(){
 	
-		settitre("LivreBroche");
+		setnom("PizzaMargarita");
 		setprix(10.50);
 	
 	}
 	
-	public String gettitre(){
+	public String getnom(){
 		return titre;	
 	}
 	public double getprix(){
 		return prix;	
 	}
 
-	public void settitre(String titre){
+	public void setnom(String titre){
 		this.titre=titre;	
 	}
 

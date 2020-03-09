@@ -23,9 +23,9 @@ public class Main
     public static void main(String[] argv)
     {
         new Main();
-
     }
 
+    //Méthode d'ajout de tout les adhérants à la bibliothèque
     public void addPersonne()
     {
         b.inscrireAdherent(new SansEmploie("Sticot", "Judas", "Oui", "0606060606"));
@@ -55,6 +55,7 @@ public class Main
         b.embaucherPersonnel(new Directeur("01","Bruno","Aubriet","Rue du directeur","Dirécteur"));
     }
 
+    //Méthode d'ajout de tout les ateurs et leurs livres
     public void addAuteur()
     {
         ArrayList<Auteur> auteurs = new ArrayList<>();
@@ -80,6 +81,8 @@ public class Main
             for(Livre l : a.getLivres())
                 b.addLivre(l);
     }
+
+    //retourne la bibliothèque actuelle
     public Bibliotheque getBibliotheque() {
         return this.b;
     }

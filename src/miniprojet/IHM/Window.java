@@ -48,6 +48,10 @@ public class Window extends JFrame  {
 
     }
 
+    /**
+     * Méthode permettant de changer l'écran affichée par la Window
+     * @param name nom de l'écran à afficher
+     */
     public void changerEcran(String name){
         this.remove(mainPanel);
         this.mainPanel = ecrans.get(name);
@@ -59,6 +63,10 @@ public class Window extends JFrame  {
     }
 
 
+    /**
+     * Retourne de controleur de la fenetre
+     * @return Controleur
+     */
     public Controleur getControleur() {
         return this.c;
     }

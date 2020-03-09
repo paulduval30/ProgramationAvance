@@ -13,9 +13,13 @@ public class MenuPanel extends JPanel implements ActionListener {
     private  Window window;
 
 
+    /**
+     * Constructeur du panel de menu
+     */
     public MenuPanel(Window window){
         this.btnViewList = new JButton("Voir la liste des personnes et des livres");
         this.btnViewList.addActionListener(this);
+
         this.btnAdd = new JButton("Ajouter une personne");
         this.btnAdd.addActionListener(this);
         this.btnAddLivre = new JButton("Emprunter / Rendre un livre");
@@ -25,8 +29,8 @@ public class MenuPanel extends JPanel implements ActionListener {
         this.add(btnAddLivre);
         this.window = window;
         this.setVisible(true);
-
     }
+
 
     @Override
     public void actionPerformed(ActionEvent e) {

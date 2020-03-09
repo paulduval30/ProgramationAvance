@@ -15,6 +15,9 @@ public class PanelEmpruntRetour extends JPanel {
     private JButton btnSubmitEmprunt;
     private JButton btnSubmitRetour;
 
+    /**
+     *Création du panel d'emprunts et retours de livres
+     */
     public PanelEmpruntRetour(Window window){
         this.setLayout(new BorderLayout());
         this.window = window;
@@ -25,8 +28,9 @@ public class PanelEmpruntRetour extends JPanel {
 
     private void addListener()
     {
+        //si click bouton retour, changer écran pour écran menu
         this.btnRetour.addActionListener(e -> window.changerEcran("Menu"));
-
+        // lors d'une selection dans la combobox de retour des adherents, recharges tout les livres de cet adherent dans la combobox de retour des livres
         this.adherentsRetour.addActionListener(e -> {
             livresRetour.removeAllItems();
             Adherent adherent = ((Adherent)adherentsRetour.getSelectedItem());
@@ -38,6 +42,7 @@ public class PanelEmpruntRetour extends JPanel {
             }
         });
 
+        //Lors du click sur le bouton de retour d'un livre, appel la méthode de retour d'un livre, et recalcul les livres et adherents affichés dans les combobox
         this.btnSubmitRetour.addActionListener(e -> {
             Livre livre = (Livre) livresRetour.getSelectedItem();
             Adherent adherent = (Adherent) adherentsRetour.getSelectedItem();
@@ -69,6 +74,7 @@ public class PanelEmpruntRetour extends JPanel {
             }
         });
 
+        // Au click du bouton d'emprunt, appel la méthode d'emprunt d'un livre et recaulcul le contenu des combobox
         this.btnSubmitEmprunt.addActionListener(e -> {
             Livre livre = (Livre) livresDisponible.getSelectedItem();
             Adherent adherent = (Adherent) adherents.getSelectedItem();

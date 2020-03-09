@@ -1,23 +1,23 @@
 package Cours2;
 
-public class LivreNumerique implements Livre {
+public class PizzaCalzone implements Pizza {
 
 	public String titre;
 	private double prix;
 
-	public LivreNumerique(){
+	public PizzaCalzone(){
 
-		settitre("LivreNumerique");
-		setprix(6.80);	
+		setnom("PizzaCalzone");
+		setprix(11.80);
 	}
-	public String gettitre(){
+	public String getnom(){
 		return titre;	
 	}
 	public double getprix(){
 		return prix;	
 	}
 
-	public void settitre(String titre){
+	public void setnom(String titre){
 		this.titre=titre;	
 	}
 

@@ -25,6 +25,9 @@ public class AddPersonne extends JPanel implements ActionListener {
     private JTextField txtBtxSalaireBrut;
     private JPanel mainPanel;
 
+    /**
+     * Constructeur du panel d'ajout d'une personne
+     */
     public AddPersonne(Window window){
         this.setLayout(new BorderLayout());
         this.window = window;
@@ -35,8 +38,10 @@ public class AddPersonne extends JPanel implements ActionListener {
 
     private void addListener()
     {
+
         this.btnRetour.addActionListener(new ActionListener()
         {
+            // en cas d'appuye sur le bouton retour, changer l'écran pour l'écran de menu
             @Override
             public void actionPerformed(ActionEvent e)
             {
@@ -45,6 +50,7 @@ public class AddPersonne extends JPanel implements ActionListener {
         });
         this.btnSubmit.addActionListener(new ActionListener()
         {
+            // en cas d'appuye sur le bouton d'envoie,  incrit un nouvel adhérent
             @Override
             public void actionPerformed(ActionEvent e)
             {
@@ -75,7 +81,10 @@ public class AddPersonne extends JPanel implements ActionListener {
         });
         this.cbxRole.addActionListener(this);
     }
-    
+
+    /**
+     * Méthode de création des composants nécessaires
+     */
     private void createComponent(){
         this.btnRetour = new JButton("Retour");
         this.btnSubmit = new JButton("Submit");
@@ -94,6 +103,11 @@ public class AddPersonne extends JPanel implements ActionListener {
 
     }
 
+    /**
+     * Méthode de création du formaire d'ajout d'un adherent en fonction du status
+     * @param statut String
+     * @return JPanel nouveau formulaire
+     */
     private JPanel createForm(String statut)
     {
         JPanel panel = new JPanel(new GridLayout(0,1));
@@ -128,6 +142,10 @@ public class AddPersonne extends JPanel implements ActionListener {
         return panel;
     }
 
+    /**
+     * Méthode de reformation du formulaire en fonction du statut
+     * @param statut String
+     */
     private void placeComponent(String statut){
 
         JPanel q = new JPanel(new GridLayout(0,1));
@@ -161,6 +179,7 @@ public class AddPersonne extends JPanel implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        //Lors du changement de choix dans la combobox role, supprime les composants existants et recrée un panel en reformant le formulaire
         if(e.getSource() == cbxRole)
         {
             String statut = (String)this.cbxRole.getSelectedItem();

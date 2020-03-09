@@ -21,6 +21,7 @@ public class ViewPanel extends JPanel implements ActionListener {
 
 
 
+    //création du panel de vue des livres et personnes de la bibliotheque
     public ViewPanel(Window window){
         this.window = window;
         this.setVisible(true);

@@ -1,8 +1,7 @@
 package miniprojet;
 
-import javafx.scene.effect.Light;
-import miniprojet.IHM.Window;
-import miniprojet.metier.*;
+import miniprojet.model.Bibliotheque;
+import miniprojet.model.metier.*;
 
 import java.util.ArrayList;
 
@@ -17,6 +16,18 @@ public class Main
         this.b = new Bibliotheque();
         this.personnels = new ArrayList<>();
 
+        this.addPersonne();
+        this.addAuteur();
+        new Controleur(b);
+    }
+    public static void main(String[] argv)
+    {
+        new Main();
+
+    }
+
+    public void addPersonne()
+    {
         b.inscrireAdherent(new SansEmploie("Sticot", "Judas", "Oui", "0606060606"));
         b.inscrireAdherent(new SansEmploie("Bricot", "Judas", "Oui", "0606060606"));
         b.inscrireAdherent(new SansEmploie("Nanas", "Judas", "Oui", "0606060606"));
@@ -42,7 +53,10 @@ public class Main
         b.embaucherPersonnel(new Secretaire("61","Lecourt","Thomas","rue des chemins","Secretaire"));
         b.embaucherPersonnel(new Secretaire("60","Lemarchand","Claude","rue des avenues","Secretaire"));
         b.embaucherPersonnel(new Directeur("01","Bruno","Aubriet","Rue du directeur","Dirécteur"));
+    }
 
+    public void addAuteur()
+    {
         ArrayList<Auteur> auteurs = new ArrayList<>();
         Auteur emile = new Auteur("1", "Zola", "Emile");
         Auteur hugo = new Auteur("2", "Hugo", "Victor");
@@ -50,7 +64,6 @@ public class Main
         auteurs.add(emile);
         auteurs.add(hugo);
         auteurs.add(jules);
-
         jules.ecrire("20 000 lieux sous les mer", "", 2019);
         jules.ecrire("Voyage au centre de la terre", "", 2019);
         jules.ecrire("De la terre a la lune", "", 2019);
@@ -66,21 +79,7 @@ public class Main
         for(Auteur a : auteurs)
             for(Livre l : a.getLivres())
                 b.addLivre(l);
-
-        b.emprunter(b.getLivres().get(0), b.getAdherents().get(0));
-        b.emprunter(b.getLivres().get(1), b.getAdherents().get(0));
-        b.emprunter(b.getLivres().get(2), b.getAdherents().get(0));
-        b.emprunter(b.getLivres().get(3), b.getAdherents().get(0));
-        b.emprunter(b.getLivres().get(4), b.getAdherents().get(0));
-        Window win = new Window(this);
-
     }
-    public static void main(String[] argv)
-    {
-        new Main();
-
-    }
-
     public Bibliotheque getBibliotheque() {
         return this.b;
     }

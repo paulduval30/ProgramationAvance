@@ -1,9 +1,9 @@
 package miniprojet.IHM;
-import miniprojet.IHM.Panels.PanelEmpruntRetour;
-import miniprojet.IHM.Panels.AddPersonne;
-import miniprojet.IHM.Panels.MenuPanel;
-import miniprojet.IHM.Panels.ViewPanel;
-import miniprojet.Main;
+import miniprojet.Controleur;
+import miniprojet.IHM.panels.PanelEmpruntRetour;
+import miniprojet.IHM.panels.AddPersonne;
+import miniprojet.IHM.panels.MenuPanel;
+import miniprojet.IHM.panels.ViewPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,13 +13,13 @@ import java.util.HashMap;
 public class Window extends JFrame  {
 
     private JPanel mainPanel;
-    private Main m;
+    private Controleur c;
     private HashMap<String,JPanel> ecrans;
 
 
 
 
-    public Window(Main m)
+    public Window(Controleur c)
     {
         try
         {
@@ -30,7 +30,7 @@ public class Window extends JFrame  {
             e.printStackTrace();
         }
 
-        this.m = m;
+        this.c = c;
         this.setTitle("Gestion du personnel et des adhérants");
         this.setSize(1200,600);
         this.setLocationRelativeTo(null);
@@ -59,7 +59,7 @@ public class Window extends JFrame  {
     }
 
 
-    public Main getMain() {
-        return this.m;
+    public Controleur getControleur() {
+        return this.c;
     }
 }

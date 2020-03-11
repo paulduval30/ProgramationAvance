@@ -136,9 +136,11 @@ public class PanelEmpruntRetour extends JPanel {
             }
     }
 
+    /**
+     * Place les composants dans le JPanel
+     */
     private void placeComponent()
     {
-
         JPanel p = new JPanel(new GridLayout(0, 1));
         JPanel q = new JPanel(new BorderLayout());
         JPanel r = new JPanel();

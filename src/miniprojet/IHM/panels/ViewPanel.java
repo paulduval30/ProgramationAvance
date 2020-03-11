@@ -19,8 +19,6 @@ public class ViewPanel extends JPanel implements ActionListener {
     private JButton btnRetour;
     private FilterListView<Livre> livreListView;
 
-
-
     //création du panel de vue des livres et personnes de la bibliotheque
     public ViewPanel(Window window){
         this.window = window;

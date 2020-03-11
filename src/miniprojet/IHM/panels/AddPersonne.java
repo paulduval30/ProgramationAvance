@@ -9,6 +9,9 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Panel d'ajout des personnes
+ */
 public class AddPersonne extends JPanel implements ActionListener {
     private final String[] ROLE = new String[]{"Sans Emploi", "Salarie" , "Etudiant"};
     private  Window window;
@@ -36,6 +39,9 @@ public class AddPersonne extends JPanel implements ActionListener {
         this.addListener();
     }
 
+    /**
+     * Ajoute les listener
+     */
     private void addListener()
     {
 

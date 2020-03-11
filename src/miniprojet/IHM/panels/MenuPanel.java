@@ -12,7 +12,6 @@ public class MenuPanel extends JPanel implements ActionListener {
     private JTextArea listView;
     private  Window window;
 
-
     /**
      * Constructeur du panel de menu
      */

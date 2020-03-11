@@ -1,5 +1,9 @@
 package miniprojet.model.metier;
 
 public interface Personne {
-    public abstract double calculerCot();//calcul la cotisation d'une personne
+    /**
+     * Calcul la cotisation d'une personne
+     * @return cotisation double
+     */
+    public abstract double calculerCot();
 }

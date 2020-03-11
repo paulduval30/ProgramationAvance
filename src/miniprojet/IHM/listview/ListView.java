@@ -9,16 +9,23 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 
+/**
+ * Code du composant List View, qui affiche une ArrayList d'objet de type <E>
+ * @param <E> le type de l'objet a afficher. Il doit implementer Sortable
+ */
 public class ListView<E extends Sortable> extends JComponent implements MouseMotionListener
 {
     private ArrayList<E> toDispaly;
     private ArrayList<E> objects;
-    private String text;
     private final int BOX_HEIGHT = 30;
     private int selected;
     private String regex;
     private Match match;
 
+    /**
+     * Constructeur de la classe ListView
+     * @param d Dimension du composant
+     */
     public ListView(Dimension d){
         this.match = new Match();
         this.toDispaly = new ArrayList<>();
@@ -64,15 +71,21 @@ public class ListView<E extends Sortable> extends JComponent implements MouseMot
         }
     }
 
+    /**
+     * Ajoute un objet a la liste
+     * @param object l'objet a ajouter
+     */
     public void add(E object)
     {
         this.objects.add(object);
-        this.displayTest();
         this.filter();
         this.setPreferredSize(new Dimension(this.getWidth(), toDispaly.size() * 30));
         this.repaint();
     }
 
+    /**
+     *Filtre les elements de la liste selon la regex en variable de classe
+     */
     public void filter()
     {
         toDispaly = new ArrayList<>();
@@ -82,23 +95,6 @@ public class ListView<E extends Sortable> extends JComponent implements MouseMot
             if(match.matching(e.getId()))
                 toDispaly.add(e);
         }
-    }
-
-    public void displayTest()
-    {
-        String str = "";
-
-        for(E e : this.toDispaly)
-        {
-            str += e.toString() + "\n";
-        }
-
-        this.setText(str);
-    }
-
-    private void setText(String str) {
-        this.text = str;
-
     }
 
     @Override

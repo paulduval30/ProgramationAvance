@@ -10,10 +10,18 @@ public class FilterListView<E extends Sortable> extends JPanel
     private ListView<E> listView;
     private JTextField filter;
 
+    /**
+     * Constructeur de FilterListView
+     * @param d la dimension du composant
+     */
     public FilterListView(Dimension d)
     {
         this.setLayout(new BorderLayout());
         this.filter = new JTextField(20);
+
+        /**
+         * Crée le document listener. Il permet de détécter les changements de texte dans le JTexField
+         */
         this.filter.getDocument().addDocumentListener(new DocumentListener()
         {
             @Override
@@ -40,6 +48,7 @@ public class FilterListView<E extends Sortable> extends JPanel
                 listView.repaint();
             }
         });
+
         this.listView = new ListView<E>(d);
         this.add(filter, BorderLayout.NORTH);
         JScrollPane j = new JScrollPane(listView);

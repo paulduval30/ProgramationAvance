@@ -180,17 +180,13 @@ public class AddPersonne extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         //Lors du changement de choix dans la combobox role, supprime les composants existants et recrée un panel en reformant le formulaire
-        if(e.getSource() == cbxRole)
-        {
-            String statut = (String)this.cbxRole.getSelectedItem();
+        if (e.getSource() == cbxRole) {
+            String statut = (String) this.cbxRole.getSelectedItem();
             this.removeAll();
-            this.mainPanel = new JPanel(new GridLayout(0,1));
+            this.mainPanel = new JPanel(new GridLayout(0, 1));
             this.placeComponent(statut);
             mainPanel.revalidate();
             this.addListener();
         }
-
     }
-    
-    
 }

@@ -20,4 +20,4 @@ class Personne {
         this.âge = âge;
     }
 }
-// Résultat : Exception de type IllegalAccessException
+// Résultat : exception de type IllegalAccessException

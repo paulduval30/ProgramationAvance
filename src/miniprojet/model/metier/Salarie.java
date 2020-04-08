@@ -23,6 +23,11 @@ public class Salarie extends Adherent implements Personne
         this.refSalarie = refSalarie;
     }
 
+    public Salarie(String nom, String prenom)
+    {
+        super(nom, prenom, "", "", "");
+    }
+
     /**
      * Méthode d'inscription du salarié à une bibliothèque
      * @param b objet de type Bibliothèque

@@ -23,6 +23,11 @@ public class Etudiant extends Adherent implements Personne
         this.numEtudiant = numEtudiant;
     }
 
+    public Etudiant(String nom, String prenom)
+    {
+        super(nom, prenom, "", "", "");
+    }
+
     /**
      * Méthode heritée de Adherent
      * @param b objet de type Bibliothèque

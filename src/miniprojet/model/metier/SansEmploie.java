@@ -16,6 +16,11 @@ public class SansEmploie extends Adherent
         super(nom, prenom, adresse, num, "Sans emploie");
     }
 
+    public SansEmploie(String nom, String prenom)
+    {
+        super(nom, prenom, "", "", "");
+    }
+
     /**
      * Méthode d'inscription du chomeur à une bibliothèque
      * @param b objet de type Bibliothèque

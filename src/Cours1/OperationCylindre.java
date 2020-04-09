@@ -36,9 +36,9 @@ public class OperationCylindre
         return diametre;
     }
 
-    public void setDiametre(int diamètre)
+    public void setDiametre(int diametre)
     {
-        this.diametre = diamètre;
+        this.diametre = diametre;
     }
 
     public double getHauteur()

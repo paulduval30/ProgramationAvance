@@ -28,23 +28,23 @@ public class Reflection6 {
         for (Constructor constructeur: classe.getDeclaredConstructors()) {
             System.out.print(" "+Modifier.toString(constructeur.getModifiers()));
             System.out.print(" "+constructeur.getName()+"(");
-            Class[] typeParamètres = constructeur.getParameterTypes();
-            for (int i=0; i<typeParamètres.length; i++) {
+            Class[] typeParametres = constructeur.getParameterTypes();
+            for (int i=0; i<typeParametres.length; i++) {
                 if (i>0) System.out.print(", ");
-                System.out.print(typeParamètres[i].getName());
+                System.out.print(typeParametres[i].getName());
             }
             System.out.println(");");
         }
         // affiche toutes les méthodes
         System.out.println("Méthodes --------------------------------------");
-        for (Method méthode : classe.getDeclaredMethods()) {
-            System.out.print(" "+méthode.getReturnType()+" ");
-            System.out.print(Modifier.toString(méthode.getModifiers()));
-            System.out.print(" "+méthode.getName()+"(");
-            Class[] typeParamètres = méthode.getParameterTypes();
-            for (int i=0; i<typeParamètres.length; i++) {
+        for (Method methode : classe.getDeclaredMethods()) {
+            System.out.print(" "+methode.getReturnType()+" ");
+            System.out.print(Modifier.toString(methode.getModifiers()));
+            System.out.print(" "+methode.getName()+"(");
+            Class[] typeParametres = methode.getParameterTypes();
+            for (int i=0; i<typeParametres.length; i++) {
                 if (i>0) System.out.print(", ");
-                System.out.print(typeParamètres[i].getName());
+                System.out.print(typeParametres[i].getName());
             }
             System.out.println(");");
         }

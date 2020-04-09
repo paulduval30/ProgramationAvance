@@ -11,14 +11,14 @@ public class reflexion2 {
         out.println("Classe de base --------------------------------");
         out.println(" "+classe.getSuperclass());
         out.println("Méthodes --------------------------------------");
-        for (Method méthode : classe.getDeclaredMethods()) {
-            out.print(" "+méthode.getReturnType()+" ");
-            out.print(Modifier.toString(méthode.getModifiers()));
-            out.print(" "+méthode.getName()+"(");
-            Class[] typeParamètres = méthode.getParameterTypes();
-            for (int i=0; i<typeParamètres.length; i++) {
+        for (Method methode : classe.getDeclaredMethods()) {
+            out.print(" "+methode.getReturnType()+" ");
+            out.print(Modifier.toString(methode.getModifiers()));
+            out.print(" "+methode.getName()+"(");
+            Class[] typeParametres = methode.getParameterTypes();
+            for (int i=0; i<typeParametres.length; i++) {
                 if (i>0) out.print(", ");
-                out.print(typeParamètres[i].getName());
+                out.print(typeParametres[i].getName());
             }
             out.println(");");
         }

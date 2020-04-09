@@ -14,12 +14,12 @@ public class Reflection4 {
     }
 }
 class Personne2 {
-    private String nom, prénom;
-    private int âge;
-    public Personne2(String nom, String prénom, int âge) {
+    private String nom, prenom;
+    private int age;
+    public Personne2(String nom, String prenom, int age) {
         this.nom = nom;
-        this.prénom = prénom;
-        this.âge = âge;
+        this.prenom = prenom;
+        this.age = age;
     }
 }
 // Résultat : exception de type IllegalAccessException

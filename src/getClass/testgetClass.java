@@ -12,9 +12,9 @@ public class testgetClass {
 
 }
 class Personne2 {
-    private String nom,prénom;
-    public Personne2 (String nom,String prénom){
+    private String nom,prenom;
+    public Personne2 (String nom,String prenom){
         this.nom=nom;
-        this.prénom=prénom;
+        this.prenom=prenom;
     }
 }

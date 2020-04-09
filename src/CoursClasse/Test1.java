@@ -11,11 +11,11 @@ public class Test1
 }
 
 class Personne {
-    private String nom, prénom;
-    public Personne(String nom, String prénom)
+    private String nom, prenom;
+    public Personne(String nom, String prenom)
     {
         this.nom = nom;
-        this.prénom = prénom;
+        this.prenom = prenom;
     }
 }
 

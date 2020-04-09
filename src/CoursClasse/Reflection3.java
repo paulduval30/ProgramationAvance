@@ -20,10 +20,10 @@ public class Reflection3 {
         for (Constructor constructeur : classe.getDeclaredConstructors()) {
             out.print(" "+Modifier.toString(constructeur.getModifiers()));
             out.print(" "+constructeur.getName()+"(");
-            Class[] typeParamètres = constructeur.getParameterTypes();
-            for (int i=0; i<typeParamètres.length; i++) {
+            Class[] typeParametres = constructeur.getParameterTypes();
+            for (int i=0; i<typeParametres.length; i++) {
                 if (i>0) out.print(", ");
-                out.print(typeParamètres[i].getName());
+                out.print(typeParametres[i].getName());
             }
             out.println(");");
         }

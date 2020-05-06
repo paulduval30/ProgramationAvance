@@ -21,6 +21,10 @@ if (type.equals("fromage")) {
 	pizza = new PizzaFruitsDeMer();
 	} else if (type.equals("vegetarienne")) {
 	pizza = new PizzaVegetarienne();
-	} return pizza;
+	} else if (type.equals("burger")) {
+	pizza = new PizzaBurger();
+	}else if (type.equals("carnivore")) {
+	pizza = new PizzaCarnivore();
+	}return pizza;
 }
 }

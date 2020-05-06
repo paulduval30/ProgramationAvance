@@ -12,7 +12,7 @@ ArrayList garnitures = new ArrayList();
 	void preparer() {
 			System.out.println("Preparation de " + nom);
 			System.out.println("etalage de la pate...");
-			System.out.println("Ajout de la sauce...");
+			System.out.println("Ajout de la sauce :" +sauce);
 			System.out.println("Ajout des garnitures: ");
 			for (int i = 0; i < garnitures.size(); i++) {
 				System.out.println(" " + garnitures.get(i));

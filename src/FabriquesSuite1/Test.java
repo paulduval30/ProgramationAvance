@@ -13,6 +13,8 @@ public class Test {
 * IL suffit de faire le choix de la pizza dans cet appel !	
 */	
 		pizzeria.commanderPizza("fromage");
+		pizzeria.commanderPizza("burger");
+		pizzeria.commanderPizza("carnivore");
 		
 		}
 }

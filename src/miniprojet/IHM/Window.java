@@ -17,8 +17,6 @@ public class Window extends JFrame  {
     private HashMap<String,JPanel> ecrans;
 
 
-
-
     public Window(Controleur c)
     {
         try

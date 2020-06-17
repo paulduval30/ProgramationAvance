@@ -1,5 +1,5 @@
 package Cours2;
-
+/*Exercice réalisé par Paul Duval et Aurélien Blondel */
 public class MainDecorateur {
 
 	public static void main(String[] args) {

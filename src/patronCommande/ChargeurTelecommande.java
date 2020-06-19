@@ -5,6 +5,8 @@ public class ChargeurTelecommande {
         Telecommande teleCommande = new Telecommande();
         Lampe lampeSejour= new Lampe("Séjour");
         Lampe lampeCuisine = new Lampe("Cuisine");
+        Ventilateur ventilateur = new Ventilateur("Le joli ventilateur");
+        PorteGarage porteGarage = new PorteGarage("La jolie porte");
 
 
         CommandeAllumerLampe lampeSejourAllumee =new CommandeAllumerLampe(lampeSejour);
@@ -12,15 +14,15 @@ public class ChargeurTelecommande {
         CommandeAllumerLampe lampeCuisineAllumee =new CommandeAllumerLampe(lampeCuisine);
         CommandeEteindreLampe lampeCuisineEteinte =new CommandeEteindreLampe(lampeCuisine);
 
-        //CommandeAllumerVentilateur ventilateurAllume = new CommandeAllumerVentilateur(ventilateur);
-        //CommandeEteindreVentilateur ventilateurEteint = new CommandeEteindreVentilateur(ventilateur);
-        //CommandeOuvrirPorteGarage porteGarageOuverte = new CommandeOuvrirPorteGarage(porteGarage);
-        //CommandeFermerPorteGarage porteGarageFermee = new CommandeFermerPorteGarage(porteGarage);
+        CommandeAllumerVentilateur ventilateurAllume = new CommandeAllumerVentilateur(ventilateur);
+        CommandeEteindreVentilateur ventilateurEteint = new CommandeEteindreVentilateur(ventilateur);
+        CommandeOuvrirPorteGarage porteGarageOuverte = new CommandeOuvrirPorteGarage(porteGarage);
+        CommandeFermerPorteGarage porteGarageFermee = new CommandeFermerPorteGarage(porteGarage);
 
         teleCommande.setCommande(0, lampeSejourAllumee, lampeSejourEteinte);
         teleCommande.setCommande(1, lampeCuisineAllumee, lampeCuisineEteinte);
-        //teleCommande.setCommande(2, ventilateurAllume, ventilateurEteint);
-        //teleCommande.setCommande(3, stereoAvecCD, stereoEteinte);
+        teleCommande.setCommande(2, ventilateurAllume, ventilateurEteint);
+        teleCommande.setCommande(3, porteGarageOuverte, porteGarageFermee);
 
         teleCommande.boutonMarchePresse(0);
         teleCommande.boutonArretPresse(0);

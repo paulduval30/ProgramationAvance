@@ -15,6 +15,9 @@ public class AddPersonneEtudiant extends AjouterPersonne {
 
     public AddPersonneEtudiant(Window window) {
         super(window);
+        createComponent();
+        placeComponent("Sans Emploi");
+        this.addListener();
     }
 
     @Override
@@ -26,7 +29,6 @@ public class AddPersonneEtudiant extends AjouterPersonne {
 
     @Override
     protected void placeComponent(String statut) {
-        System.out.println("oui");
         super.placeComponent(statut);
         JPanel panel = new JPanel(new GridLayout(0,1));
         JPanel tmp = new JPanel();
@@ -39,23 +41,25 @@ public class AddPersonneEtudiant extends AjouterPersonne {
         tmp.add(new JLabel("Num Etudiant"));
         tmp.add(txtBtxnumEtudiant);
         panel.add(tmp);
+
+        cbxRole.setSelectedItem(ROLE[2]);
+        this.center.add(panel);
     }
 
     @Override
     protected void addListener() {
         super.addListener();
-        btnSubmit.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String nom = txtBxLastName.getText();
-                String prenom = txtBxLastName.getText();
-                String adresse = txtBxAdr.getText();
-                String num = "0606060606";
-                String refEtu = txtBtxrefEtudiant.getText();
-                String numEtu = txtBtxnumEtudiant.getText();
-                Etudiant etu = new Etudiant(nom,prenom,adresse, num, refEtu,numEtu);
-                window.getControleur().inscrireAdherent(etu);
-            }
+        btnSubmit.addActionListener(e -> {
+            String nom = txtBxLastName.getText();
+            String prenom = txtBxLastName.getText();
+            String adresse = txtBxAdr.getText();
+            String num = "0606060606";
+            String refEtu = txtBtxrefEtudiant.getText();
+            String numEtu = txtBtxnumEtudiant.getText();
+            Etudiant etu = new Etudiant(nom,prenom,adresse, num, refEtu,numEtu);
+            window.getControleur().inscrireAdherent(etu);
         });
+
+        cbxRole.addActionListener(this);
     }
 }

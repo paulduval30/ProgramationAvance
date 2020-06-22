@@ -22,6 +22,11 @@ public class AddPersonneSalarie extends AjouterPersonne {
      */
     public AddPersonneSalarie(Window window) {
         super(window);
+        createComponent();
+        placeComponent("Sans Emploi");
+        this.addListener();
+        this.setBackground(Color.BLUE);
+
     }
 
     @Override
@@ -46,6 +51,10 @@ public class AddPersonneSalarie extends AjouterPersonne {
         tmp.add(new JLabel("Salaire Brut"));
         tmp.add(txtBtxSalaireBrut);
         panel.add(tmp);
+
+        cbxRole.setSelectedItem(ROLE[1]);
+
+        this.center.add(panel);
 
     }
 

@@ -28,15 +28,13 @@ public class AddPersonne extends JPanel implements ActionListener {
     private JTextField txtBtxSalaireBrut;
     private JPanel mainPanel;
 
+
     /**
      * Constructeur du panel d'ajout d'une personne
      */
     public AddPersonne(Window window){
         this.setLayout(new BorderLayout());
         this.window = window;
-        createComponent();
-        placeComponent("Sans Emploi");
-        this.addListener();
     }
 
     /**
@@ -164,6 +162,11 @@ public class AddPersonne extends JPanel implements ActionListener {
         tmp = new JPanel();
         tmp.add(new JLabel("Prenom :"));
         tmp.add(this.txtBxFirstName);
+        q.add(tmp);
+
+        tmp = new JPanel();
+        tmp.add(new JLabel("Adresse :"));
+        tmp.add(this.txtBxAdr);
         q.add(tmp);
 
         tmp = new JPanel();

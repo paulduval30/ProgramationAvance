@@ -40,6 +40,7 @@ public class Window extends JFrame  {
         this.ecrans.put("AddPersonneEtudiant", new AddPersonneEtudiant(this));
         this.ecrans.put("AddPersonneSalarie", new AddPersonneSalarie(this));
         mainPanel.add(ecrans.get("Menu"));
+        System.out.println(ecrans.containsKey("AddPersonneSansEmploi"));
         this.getContentPane().add(mainPanel);
         this.setVisible(true);
 

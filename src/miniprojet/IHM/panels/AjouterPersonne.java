@@ -12,7 +12,7 @@ import java.awt.event.ActionListener;
 
 public abstract class AjouterPersonne extends JPanel implements ActionListener {
 
-    private final String[] ROLE = new String[]{"Sans Emploi", "Salarie" , "Etudiant"};
+    protected final String[] ROLE = new String[]{"Sans Emploi", "Salarie" , "Etudiant"};
 
     protected  Window window;
     protected JButton btnRetour;
@@ -21,6 +21,8 @@ public abstract class AjouterPersonne extends JPanel implements ActionListener {
     protected JTextField txtBxFirstName;
     protected JTextField txtBxAdr;
     protected JComboBox cbxRole;
+    protected JPanel center;
+
 
     /**
      * Constructeur du panel d'ajout d'une personne
@@ -28,9 +30,9 @@ public abstract class AjouterPersonne extends JPanel implements ActionListener {
     public AjouterPersonne(Window window){
         this.setLayout(new BorderLayout());
         this.window = window;
-        createComponent();
-        placeComponent("Sans Emploi");
-        this.addListener();
+//        createComponent();
+//        placeComponent("Sans Emploi");
+//        this.addListener();
     }
     protected void createComponent(){
         this.btnRetour = new JButton("Retour");
@@ -41,6 +43,8 @@ public abstract class AjouterPersonne extends JPanel implements ActionListener {
         this.cbxRole = new JComboBox();
         for(String s : ROLE)
             cbxRole.addItem(s);
+
+        this.center = new JPanel(new GridLayout(1,0));
     }
     /**
      * Méthode de reformation du formulaire en fonction du statut
@@ -69,6 +73,9 @@ public abstract class AjouterPersonne extends JPanel implements ActionListener {
         tmp.add(new JLabel("Statut :"));
         tmp.add(this.cbxRole);
         q.add(tmp);
+        center.add(q);
+
+        this.add(center);
 
     }
     protected void addListener()
@@ -94,18 +101,16 @@ public abstract class AjouterPersonne extends JPanel implements ActionListener {
         if (e.getSource() == cbxRole) {
             switch((String)(cbxRole.getSelectedItem()))
             {
-                case "Sans Emploie" :
+                case "Sans Emploi" :
                     window.changerEcran("AddPersonneSansEmploi");
                     break;
-                case "Salarié" :
+                case "Salarie" :
                     window.changerEcran("AddPersonneSalarie");
                     break;
                 case "Etudiant":
                     window.changerEcran("AddPersonneEtudiant");
                     break;
             }
-            if(cbxRole.getSelectedItem().equals("Sans Emploie"))
-                window.changerEcran("AjouterSansEmploie");
         }
 
     }

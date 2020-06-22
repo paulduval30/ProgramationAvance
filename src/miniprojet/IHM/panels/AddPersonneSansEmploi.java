@@ -3,6 +3,7 @@ package miniprojet.IHM.panels;
 import miniprojet.IHM.Window;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -17,11 +18,15 @@ public class AddPersonneSansEmploi extends AjouterPersonne {
         createComponent();
         placeComponent("Sans Emploi");
         this.addListener();
+        System.out.println("Add Personne sans emploie");
+        this.setBackground(Color.red);
     }
 
     @Override
     protected void placeComponent(String statut) {
         super.placeComponent(statut);
+        cbxRole.setSelectedItem(ROLE[0]);
+
 
     }
 

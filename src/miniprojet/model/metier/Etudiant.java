@@ -16,7 +16,7 @@ public class Etudiant extends Adherent implements Personne
      * @param refEtudiant reference de l'etudiant
      * @param numEtudiant numéro etudiant
      */
-    public Etudiant(String nom, String prenom, String adresse, String num, String refEtudiant, String numEtudiant)
+    public Etudiant(String nom, String prenom, String adresse,String num, String refEtudiant, String numEtudiant)
     {
         super(nom, prenom, adresse, num, "Etudiant");
         this.refEtudiant = refEtudiant;

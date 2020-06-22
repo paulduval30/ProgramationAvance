@@ -1,9 +1,6 @@
 package miniprojet.IHM;
 import miniprojet.Controleur;
-import miniprojet.IHM.panels.PanelEmpruntRetour;
-import miniprojet.IHM.panels.AddPersonne;
-import miniprojet.IHM.panels.MenuPanel;
-import miniprojet.IHM.panels.ViewPanel;
+import miniprojet.IHM.panels.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -39,6 +36,9 @@ public class Window extends JFrame  {
         this.ecrans.put("Ajout", new AddPersonne(this));
         this.ecrans.put("AjoutLivre", new PanelEmpruntRetour(this));
         this.ecrans.put("Vue", new ViewPanel(this));
+        this.ecrans.put("AddPersonneSansEmploi", new AddPersonneSansEmploi(this));
+        this.ecrans.put("AddPersonneEtudiant", new AddPersonneEtudiant(this));
+        this.ecrans.put("AddPersonneSalarie", new AddPersonneSalarie(this));
         mainPanel.add(ecrans.get("Menu"));
         this.getContentPane().add(mainPanel);
         this.setVisible(true);

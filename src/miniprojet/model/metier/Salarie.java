@@ -16,9 +16,9 @@ public class Salarie extends Adherent implements Personne
      * @param salaireBrut salaire du salarié
      * @param refSalarie référence du salarié
      */
-    public Salarie(String nom, String prenom, String adresse, String num, int salaireBrut, String refSalarie)
+    public Salarie(String nom, String prenom, String adresse, String num,  int salaireBrut, String refSalarie)
     {
-        super(nom, prenom, adresse, num, "Salarié");
+        super(nom, prenom, adresse, num,  "Salarié");
         this.salaireBrut = salaireBrut;
         this.refSalarie = refSalarie;
     }

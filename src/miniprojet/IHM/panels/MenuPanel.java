@@ -37,7 +37,7 @@ public class MenuPanel extends JPanel implements ActionListener {
             window.changerEcran("Vue");
         }
         if (e.getSource()==btnAdd){
-            window.changerEcran("Ajout");
+            window.changerEcran("AddPersonneSansEmploi");
         }
         if (e.getSource()==btnAddLivre){
             window.changerEcran("AjoutLivre");

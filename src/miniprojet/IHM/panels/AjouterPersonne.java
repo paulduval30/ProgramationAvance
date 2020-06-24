@@ -33,6 +33,8 @@ public abstract class AjouterPersonne extends JPanel implements ActionListener {
         createComponent();
         placeComponent("Sans Emploi");
         this.addListener();
+        this.setBackground(Color.BLUE);
+
     }
     protected void createComponent(){
         this.btnRetour = new JButton("Retour");
@@ -77,8 +79,10 @@ public abstract class AjouterPersonne extends JPanel implements ActionListener {
 
         this.add(center);
 
-        this.add(q);
-
+        tmp = new JPanel(new FlowLayout());
+        tmp.add(btnSubmit);
+        tmp.add(btnRetour);
+        this.add(tmp, BorderLayout.SOUTH);
     }
     protected void addListener()
     {

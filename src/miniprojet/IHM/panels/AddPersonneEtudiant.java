@@ -58,6 +58,7 @@ public class AddPersonneEtudiant extends AjouterPersonne {
             String numEtu = txtBtxnumEtudiant.getText();
             Etudiant etu = new Etudiant(nom,prenom,adresse, num, refEtu,numEtu);
             window.getControleur().inscrireAdherent(etu);
+            ((ViewPanel)window.getEcrans().get("Vue")).getAdherentListView().add(etu);
         });
 
         cbxRole.addActionListener(this);

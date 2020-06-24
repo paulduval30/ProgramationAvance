@@ -1,6 +1,7 @@
 package miniprojet.IHM.panels;
 
 import miniprojet.IHM.Window;
+import miniprojet.model.metier.SansEmploie;
 
 import javax.swing.*;
 import java.awt.*;
@@ -43,7 +44,9 @@ public class AddPersonneSansEmploi extends AjouterPersonne {
                 String nom = txtBxLastName.getText();
                 String prenom = txtBxLastName.getText();
                 String adresse = txtBxAdr.getText();
-                String statut = cbxRole.getSelectedItem().toString();
+                SansEmploie s = new SansEmploie(nom, prenom, adresse, "");
+                window.getControleur().inscrireAdherent(s);
+                ((ViewPanel)window.getEcrans().get("Vue")).getAdherentListView().add(s);
             }
         });
     }

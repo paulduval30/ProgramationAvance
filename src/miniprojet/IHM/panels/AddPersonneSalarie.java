@@ -53,8 +53,8 @@ public class AddPersonneSalarie extends AjouterPersonne {
         panel.add(tmp);
 
         cbxRole.setSelectedItem(ROLE[1]);
-
         this.center.add(panel);
+        this.center.setBackground(Color.RED);
 
     }
 
@@ -73,6 +73,7 @@ public class AddPersonneSalarie extends AjouterPersonne {
                 int salaire = new Integer(txtBtxSalaireBrut.getText());
                 Salarie sala = new Salarie(nom,prenom,adresse,num, salaire,refSala);
                 window.getControleur().inscrireAdherent(sala);
+                ((ViewPanel)window.getEcrans().get("Vue")).getAdherentListView().add(sala);
             }
         });
     }

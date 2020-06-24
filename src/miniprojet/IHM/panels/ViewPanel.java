@@ -14,7 +14,7 @@ import java.awt.event.ActionListener;
 
 public class ViewPanel extends JPanel implements ActionListener {
     private  Window window;
-    private FilterListView<Adherent> adherentListView;
+    private DecoratedListView<Adherent> adherentListView;
     private JTabbedPane tab;
     private DecoratedListView<Personnel> personnelListView;
     private JButton btnRetour;
@@ -24,7 +24,7 @@ public class ViewPanel extends JPanel implements ActionListener {
     public ViewPanel(Window window){
         this.window = window;
         this.setVisible(true);
-        this.adherentListView = new FilterListView<>(new Dimension(window.getWidth(), window.getHeight()));
+        this.adherentListView = new DecoratedListView<>(new Dimension(window.getWidth(), window.getHeight()));
         this.personnelListView = new DecoratedListView<>(new Dimension(window.getWidth(), window.getHeight()));
         this.livreListView = new FilterListView<>(new Dimension(window.getWidth(), window.getHeight()));
 
@@ -73,5 +73,15 @@ public class ViewPanel extends JPanel implements ActionListener {
         if (e.getSource()==btnRetour){
             window.changerEcran("Menu");
         }
+    }
+
+    public DecoratedListView<Adherent> getAdherentListView()
+    {
+        return adherentListView;
+    }
+
+    public DecoratedListView<Personnel> getPersonnelListView()
+    {
+        return personnelListView;
     }
 }

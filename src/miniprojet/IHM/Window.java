@@ -51,6 +51,7 @@ public class Window extends JFrame  {
      * @param name nom de l'écran à afficher
      */
     public void changerEcran(String name){
+        System.out.println(name +  " " + ecrans.containsKey(name));
         this.remove(mainPanel);
         this.mainPanel = ecrans.get(name);
         mainPanel.setPreferredSize(new Dimension(this.getWidth(), this.getHeight()));
@@ -67,5 +68,10 @@ public class Window extends JFrame  {
      */
     public Controleur getControleur() {
         return this.c;
+    }
+
+    public HashMap<String, JPanel> getEcrans()
+    {
+        return ecrans;
     }
 }

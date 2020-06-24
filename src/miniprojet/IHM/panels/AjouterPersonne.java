@@ -30,9 +30,9 @@ public abstract class AjouterPersonne extends JPanel implements ActionListener {
     public AjouterPersonne(Window window){
         this.setLayout(new BorderLayout());
         this.window = window;
-//        createComponent();
-//        placeComponent("Sans Emploi");
-//        this.addListener();
+        createComponent();
+        placeComponent("Sans Emploi");
+        this.addListener();
     }
     protected void createComponent(){
         this.btnRetour = new JButton("Retour");
@@ -76,6 +76,8 @@ public abstract class AjouterPersonne extends JPanel implements ActionListener {
         center.add(q);
 
         this.add(center);
+
+        this.add(q);
 
     }
     protected void addListener()

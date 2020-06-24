@@ -33,7 +33,6 @@ public class Window extends JFrame  {
         this.mainPanel = new JPanel();
         this.ecrans = new HashMap<>();
         this.ecrans.put("Menu", new MenuPanel(this));
-        this.ecrans.put("Ajout", new AddPersonne(this));
         this.ecrans.put("AjoutLivre", new PanelEmpruntRetour(this));
         this.ecrans.put("Vue", new ViewPanel(this));
         this.ecrans.put("AddPersonneSansEmploi", new AddPersonneSansEmploi(this));

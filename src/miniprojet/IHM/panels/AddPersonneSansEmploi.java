@@ -26,8 +26,6 @@ public class AddPersonneSansEmploi extends AjouterPersonne {
     protected void placeComponent(String statut) {
         super.placeComponent(statut);
         cbxRole.setSelectedItem(ROLE[0]);
-
-
     }
 
     @Override

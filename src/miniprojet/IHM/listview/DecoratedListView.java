@@ -5,7 +5,7 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import java.awt.*;
 
-public class DecoratedListView<E> extends ListView
+public class DecoratedListView<E extends Sortable> extends ListView
 {
 
     private JTextField filter;
@@ -30,7 +30,7 @@ public class DecoratedListView<E> extends ListView
             @Override
             public void insertUpdate(DocumentEvent e)
             {
-                setRegex(filter.getText());
+                setRegex(".*" + filter.getText()  + ".*");
                 filter();
                 repaint();
             }
@@ -38,17 +38,19 @@ public class DecoratedListView<E> extends ListView
             @Override
             public void removeUpdate(DocumentEvent e)
             {
-                setRegex(filter.getText());
+                setRegex(".*" + filter.getText()  + ".*");
                 filter();
                 repaint();
+
             }
 
             @Override
             public void changedUpdate(DocumentEvent e)
             {
-                setRegex(filter.getText());
+                setRegex(".*" + filter.getText() + ".*");
                 filter();
                 repaint();
+
             }
         });
 

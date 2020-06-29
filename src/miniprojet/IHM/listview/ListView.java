@@ -15,12 +15,12 @@ import java.util.ArrayList;
  */
 public class ListView<E extends Sortable> extends JComponent implements MouseMotionListener
 {
-    private ArrayList<E> toDispaly;
-    private ArrayList<E> objects;
-    private final int BOX_HEIGHT = 30;
-    private int selected;
-    private String regex;
-    private Match match;
+    protected ArrayList<E> toDispaly;
+    protected ArrayList<E> objects;
+    protected final int BOX_HEIGHT = 30;
+    protected int selected;
+    protected String regex;
+    protected Match match;
 
     /**
      * Constructeur de la classe ListView
@@ -63,10 +63,10 @@ public class ListView<E extends Sortable> extends JComponent implements MouseMot
                 g.setColor(Color.LIGHT_GRAY);
             else
                 g.setColor(new Color(217, 215, 215));
-            g.fillRect(0,i * BOX_HEIGHT, this.getWidth(), BOX_HEIGHT);
+            g.fillRect(0,i * BOX_HEIGHT + 50, this.getWidth(), BOX_HEIGHT);
 
             g.setColor(Color.BLACK);
-            g.drawString(toDispaly.get(i).getText(),0, i * BOX_HEIGHT - BOX_HEIGHT / 2 + 30);
+            g.drawString(toDispaly.get(i).getText(),0, i * BOX_HEIGHT - BOX_HEIGHT / 2 + 30 + 50);
 
         }
     }
@@ -95,6 +95,9 @@ public class ListView<E extends Sortable> extends JComponent implements MouseMot
             if(match.matching(e.getId()))
                 toDispaly.add(e);
         }
+
+        for(E e : toDispaly)
+            System.out.println(e.getId());
     }
 
     @Override
@@ -106,7 +109,7 @@ public class ListView<E extends Sortable> extends JComponent implements MouseMot
     @Override
     public void mouseMoved(MouseEvent e)
     {
-        int  id = e.getY() / BOX_HEIGHT;
+        int  id = (e.getY() - 50) / BOX_HEIGHT;
         if(id < toDispaly.size())
             selected = id;
         this.repaint();

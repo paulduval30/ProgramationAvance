@@ -1,6 +1,7 @@
 package miniprojet.IHM.panels;
 
 import miniprojet.IHM.listview.DecoratedListView;
+import miniprojet.IHM.listview.DecoratedListViewNightVersion;
 import miniprojet.IHM.listview.FilterListView;
 import miniprojet.IHM.Window;
 import miniprojet.model.metier.Adherent;
@@ -14,7 +15,7 @@ import java.awt.event.ActionListener;
 
 public class ViewPanel extends JPanel implements ActionListener {
     private  Window window;
-    private DecoratedListView<Adherent> adherentListView;
+    private DecoratedListViewNightVersion<Adherent> adherentListView;
     private JTabbedPane tab;
     private DecoratedListView<Personnel> personnelListView;
     private JButton btnRetour;
@@ -24,7 +25,7 @@ public class ViewPanel extends JPanel implements ActionListener {
     public ViewPanel(Window window){
         this.window = window;
         this.setVisible(true);
-        this.adherentListView = new DecoratedListView<>(new Dimension(window.getWidth(), window.getHeight()));
+        this.adherentListView = new DecoratedListViewNightVersion<>(new Dimension(window.getWidth(), window.getHeight()));
         this.personnelListView = new DecoratedListView<>(new Dimension(window.getWidth(), window.getHeight()));
         this.livreListView = new FilterListView<>(new Dimension(window.getWidth(), window.getHeight()));
 
